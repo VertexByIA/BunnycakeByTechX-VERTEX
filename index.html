@@ -197,6 +197,8 @@ footer img{
 <a class="whatsapp" href="https://wa.me/94776128700">💬</a>
 
 <script>
+document.addEventListener("DOMContentLoaded", function(){
+
 function sendToWhatsApp(){
   var name=document.getElementById('name').value;
   var phone=document.getElementById('phone').value;
@@ -222,20 +224,24 @@ function sendToWhatsApp(){
   window.open("https://wa.me/"+number+"?text="+text,'_blank');
 }
 
-document.getElementById('size').addEventListener('input',calc);
-document.getElementById('delivery').addEventListener('change',calc);
+window.sendToWhatsApp = sendToWhatsApp;
 
 function calc(){
   let size=document.getElementById('size').value;
   let price=5000;
 
-  if(size.includes('1')) price=4000;
-  if(size.includes('2')) price=7500;
+  if(size.includes('1')) price=3000;
+  if(size.includes('2')) price=5500;
 
   if(document.getElementById('delivery').value=='Yes') price+=500;
 
   document.getElementById('price').innerText="Estimated Price: Rs."+price;
 }
+
+document.getElementById('size').addEventListener('input',calc);
+document.getElementById('delivery').addEventListener('change',calc);
+
+});
 </script>
 
 </body>
