@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Crumbs | Premium Cakes</title>
+
+<link rel="icon" href="main2.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#fff7f9;color:#333}
+
+header{
+  background:linear-gradient(90deg,#ff6f91,#ff8fab);
+  padding:15px 30px;color:#fff;
+  display:flex;justify-content:space-between;align-items:center
+}
+
+.logo{
+  display:flex;align-items:center;gap:10px
+}
+
+.logo img{height:40px}
+
+nav a{
+  color:#fff;margin:0 10px;text-decoration:none
+}
+
+.hero{
+  height:80vh;
+  background:url('https://images.unsplash.com/photo-1559622214-f8a9850965bb') center/cover;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  color:#fff;text-align:center
+}
+
+.hero h2{
+  font-size:40px;
+  background:rgba(0,0,0,0.4);
+  padding:10px 20px;
+  border-radius:10px
+}
+
+.hero button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff6f91;
+  color:#fff;
+  cursor:pointer
+}
+
+.section{padding:60px 20px;text-align:center}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px
+}
+
+.card{
+  background:#fff;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1)
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover
+}
+
+form{
+  max-width:500px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1)
+}
+
+form input,form select,form textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ddd
+}
+
+button.submit{
+  width:100%;
+  background:#ff6f91;
+  color:#fff;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer
+}
+
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:20px
+}
+
+footer p{
+  margin:5px 0
+}
+
+footer img{
+  height:30px;
+  margin-top:10px
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="main2.jpeg">
+    <h1>Velvet Crumbs 🎂</h1>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#order">Order</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>Luxury Custom Cakes</h2>
+  <button onclick="document.getElementById('order').scrollIntoView()">Order Now</button>
+</section>
+
+<section class="section" id="gallery">
+  <h2>Our Cakes</h2>
+  <div class="grid">
+    <div class="card"><img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d"></div>
+    <div class="card"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b"></div>
+  </div>
+</section>
+
+<section class="section" id="order">
+  <h2>Order Now</h2>
+  <form onsubmit="sendToWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="tel" id="phone" placeholder="Phone" required>
+
+    <select id="type" required>
+      <option value="">Cake Type</option>
+      <option>Birthday</option>
+      <option>Wedding</option>
+      <option>Custom</option>
+    </select>
+
+    <input type="text" id="size" placeholder="Size (1kg,2kg)" required>
+    <input type="text" id="flavor" placeholder="Flavor" required>
+    <input type="date" id="date" required>
+
+    <select id="delivery">
+      <option value="">Delivery?</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <textarea id="message" placeholder="Cake Message" required></textarea>
+
+    <p id="price"></p>
+
+    <button class="submit">Send via WhatsApp</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Velvet Crumbs Cakes</p>
+  <p style="font-size:13px;opacity:0.8;">Design by Tech X @ VERTEX BETA</p>
+  <p style="font-size:13px;opacity:0.8;">Proudly presented by VERTEX GROUP</p>
+  <img src="main2.jpeg">
+</footer>
+
+<a class="whatsapp" href="https://wa.me/94776128700">💬</a>
+
+<script>
+function sendToWhatsApp(){
+  var name=document.getElementById('name').value;
+  var phone=document.getElementById('phone').value;
+  var type=document.getElementById('type').value;
+  var size=document.getElementById('size').value;
+  var flavor=document.getElementById('flavor').value;
+  var date=document.getElementById('date').value;
+  var message=document.getElementById('message').value;
+  var delivery=document.getElementById('delivery').value;
+
+  var number="94776128700";
+
+  var text="New Cake Order:%0A"
+  +"Name: "+name+"%0A"
+  +"Phone: "+phone+"%0A"
+  +"Type: "+type+"%0A"
+  +"Size: "+size+"%0A"
+  +"Flavor: "+flavor+"%0A"
+  +"Date: "+date+"%0A"
+  +"Delivery: "+delivery+"%0A"
+  +"Message: "+message;
+
+  window.open("https://wa.me/"+number+"?text="+text,'_blank');
+}
+
+document.getElementById('size').addEventListener('input',calc);
+document.getElementById('delivery').addEventListener('change',calc);
+
+function calc(){
+  let size=document.getElementById('size').value;
+  let price=5000;
+
+  if(size.includes('1')) price=4000;
+  if(size.includes('2')) price=7500;
+
+  if(document.getElementById('delivery').value=='Yes') price+=500;
+
+  document.getElementById('price').innerText="Estimated Price: Rs."+price;
+}
+</script>
+
+</body>
+</html>
